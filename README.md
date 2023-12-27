@@ -51,18 +51,77 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 
 
 ### PROGRAM 
-/*
+```
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
 
+UP COUNTER
 
+Module upcounter(clk,a);
 
+input clk;
 
+output reg[3:0];
 
+always @(posedge clk)
+
+begin
+
+a[3]=(a[2]&a[1]&a[0])^a[3];
+
+a[2]=(a[1]&a[0])^a[2];
+
+a[1]=(a[0]^a[1]);
+
+a[0]= ^a[0];
+
+end
+
+endmodule
+
+DOWN COUNTER
+
+Module downcounter(clk,a);
+
+input clk;
+
+output reg[3:0]a;
+
+always @(posedge clk)
+
+begin
+
+a[3]=(~a[2]&~a[1]&~a[0])^a[3];
+
+a[2]=(~a[1]&~a[0])^a[2];
+
+a[1]=(~a[0]^a[1]);
+
+a[0]=1^a[0];
+
+end
+
+endmodule
+```
+developed by :Monish S
+Reg.no:212223040115
 
 ### RTL LOGIC UP COUNTER AND DOWN COUNTER  
+
+UP COUNTER 
+![image](https://github.com/Monishsaravanan/Exp-7-Synchornous-counters-/assets/145743227/97e5506c-dbac-4971-854e-2157c4fdc9b6)
+Down Counter
+![image](https://github.com/Monishsaravanan/Exp-7-Synchornous-counters-/assets/145743227/141f2596-078e-4b6a-9965-d16c8b87f5ae)
+
+Program for flipflops  and verify its truth table in quartus using Verilog programming.
+
+ 
+
+
+
+
+
+
+
 
 
 
@@ -73,12 +132,21 @@ RegisterNumber:
 
 
 ### TIMING DIGRAMS FOR COUNTER  
-
+up counters
+![image](https://github.com/Monishsaravanan/Exp-7-Synchornous-counters-/assets/145743227/b24c308f-f5cc-41ea-9d90-b9f27dbbaff4)
+Down counter
+![image](https://github.com/Monishsaravanan/Exp-7-Synchornous-counters-/assets/145743227/f0831ce0-004c-4893-af40-4104fd9f5f1b)
 
 
 
 
 ### TRUTH TABLE 
+up counter
+![image](https://github.com/Monishsaravanan/Exp-7-Synchornous-counters-/assets/145743227/c8f0b996-0cfe-46f8-b40c-babed629adba)
+down counter
+![image](https://github.com/Monishsaravanan/Exp-7-Synchornous-counters-/assets/145743227/17c718f5-8f0e-4444-ab58-1ff49ba93575)
+
+
 
 
 
@@ -86,3 +154,4 @@ RegisterNumber:
 
 
 ### RESULTS 
+    Thus synchornous counters up counter and down counter circuit are studied and the truth table for different logic gates are verified.
